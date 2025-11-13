@@ -1,0 +1,11 @@
+{
+  "name": "subtitleai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd subtitleai/frontend && npm run dev",
+    "build": "cd subtitleai/frontend && npm run build",
+    "start": "cd subtitleai/frontend && npm run start",
+    "install": "cd subtitleai/frontend && npm install"
+  }
+}

@@ -88,7 +88,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             
             if (status.status === 'completed') {
               completed = true
-              subtitles = status.words?.map((word, index) => ({
+              subtitles = status.words?.map((word: any, index: number) => ({
                 project_id: projectId,
                 start_time: word.start / 1000,
                 end_time: word.end / 1000,

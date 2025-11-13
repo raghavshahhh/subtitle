@@ -2,7 +2,6 @@
 
 import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { motion } from 'framer-motion'
 import { Upload, Film, AlertCircle } from 'lucide-react'
 import { api } from '@/lib/api'
 
@@ -65,22 +64,18 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
     disabled: uploading
   })
 
-  const { onClick, ...rootProps } = getRootProps()
-
   return (
-    <motion.div
-      {...rootProps}
-      onClick={onClick as any}
+    <div
+      {...getRootProps()}
       className={`
         relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all
+        hover:scale-[1.02] active:scale-[0.98]
         ${isDragActive 
           ? 'border-primary-red-accent bg-primary-red/10' 
           : 'border-glass-border bg-glass-bg hover:border-primary-red-accent/50'
         }
         ${uploading ? 'pointer-events-none' : ''}
       `}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
     >
       <input {...getInputProps()} />
       
@@ -126,6 +121,6 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
           )}
         </div>
       )}
-    </motion.div>
+    </div>
   )
 }

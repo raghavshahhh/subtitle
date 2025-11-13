@@ -1,0 +1,18 @@
+
+> subtitleai-frontend@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 9.6s
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1013ms (396 modules)
+ GET /_next/static/webpack/20808cf8fbb17ffb.webpack.hot-update.json 404 in 1205ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 87ms (281 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 924ms (751 modules)
+ GET /dashboard 200 in 1048ms

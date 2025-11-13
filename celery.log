@@ -1,0 +1,165 @@
+ 
+ -------------- celery@RAGHAVs-MacBook-Air.local v5.3.6 (emerald-rush)
+--- ***** ----- 
+-- ******* ---- macOS-26.1-arm64-arm-64bit 2025-10-07 17:07:12
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         subtitleai:0x1070aa570
+- ** ---------- .> transport:   redis://localhost:6379//
+- ** ---------- .> results:     redis://localhost:6379/
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.tasks.transcription_tasks.process_video_task
+
+[2025-10-07 17:07:13,159: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-10-07 17:07:13,176: INFO/MainProcess] Connected to redis://localhost:6379//
+[2025-10-07 17:07:13,177: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-10-07 17:07:13,180: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-07 17:07:14,187: INFO/MainProcess] mingle: all alone
+[2025-10-07 17:07:14,209: INFO/MainProcess] celery@RAGHAVs-MacBook-Air.local ready.
+
+SIGHUP not supported: Restarting with SIGHUP is unstable on this platform!
+[2025-10-07 17:39:39,739: ERROR/MainProcess] Process 'ForkPoolWorker-8' pid:24969 exited with 'exitcode 70'
+[2025-10-07 17:39:39,781: ERROR/MainProcess] Process 'ForkPoolWorker-6' pid:24966 exited with 'exitcode 70'
+[2025-10-07 17:39:39,793: ERROR/MainProcess] Process 'ForkPoolWorker-5' pid:24964 exited with 'exitcode 70'
+[2025-10-07 17:39:39,805: ERROR/MainProcess] Process 'ForkPoolWorker-4' pid:24963 exited with 'exitcode 70'
+[2025-10-07 17:39:39,818: ERROR/MainProcess] Process 'ForkPoolWorker-3' pid:24961 exited with 'exitcode 70'
+[2025-10-07 17:39:39,830: ERROR/MainProcess] Process 'ForkPoolWorker-2' pid:24960 exited with 'exitcode 70'
+[2025-10-07 17:39:39,842: ERROR/MainProcess] Process 'ForkPoolWorker-1' pid:24959 exited with 'exitcode 70'
+[2025-10-07 17:39:42,032: ERROR/MainProcess] Process 'ForkPoolWorker-7' pid:24968 exited with 'exitcode 1'
+[2025-10-12 01:16:19,832: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 442, in send_packed_command
+    self._sock.sendall(item)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 742, in start
+    c.loop(*c.loop_args())
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    poll_timeout = fire_timers(propagate=propagate) if scheduled else 1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/hub.py", line 149, in fire_timers
+    entry()
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/timer.py", line 70, in __call__
+    return self.fun(*self.args, **self.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/timer.py", line 137, in _reschedules
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 571, in maybe_check_subclient_health
+    client.check_health()
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/client.py", line 852, in check_health
+    conn.send_command("PING", self.HEALTH_CHECK_MESSAGE, check_health=False)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 464, in send_command
+    self.send_packed_command(
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 453, in send_packed_command
+    raise ConnectionError(f"Error {errno} while writing to socket. {errmsg}.")
+redis.exceptions.ConnectionError: Error 32 while writing to socket. Broken pipe.
+[2025-10-12 01:16:20,211: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2025-10-12 01:16:20,240: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-10-12 01:16:20,288: INFO/MainProcess] Connected to redis://localhost:6379//
+[2025-10-12 01:16:20,293: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-10-12 01:16:20,419: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-12 01:16:21,465: INFO/MainProcess] mingle: all alone
+[2025-10-12 09:49:37,460: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 742, in start
+    c.loop(*c.loop_args())
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 1359, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 576, in on_readable
+    chan.handlers[type]()
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 974, in _brpop_read
+    dest__item = self.client.parse_response(self.client.connection,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/client.py", line 553, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 500, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/_parsers/resp2.py", line 15, in read_response
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/_parsers/resp2.py", line 25, in _read_response
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/_parsers/socket.py", line 115, in readline
+  File "/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/redis/_parsers/socket.py", line 68, in _read_from_socket
+redis.exceptions.ConnectionError: Connection closed by server.
+[2025-10-12 09:49:37,530: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2025-10-12 09:49:37,537: WARNING/MainProcess] /Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-10-12 09:49:37,541: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-10-12 09:49:39,553: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 4.00 seconds... (2/100)
+
+[2025-10-12 09:49:47,095: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 6.00 seconds... (3/100)
+
+[2025-10-12 09:49:53,121: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 8.00 seconds... (4/100)
+
+
+worker: Warm shutdown (MainProcess)

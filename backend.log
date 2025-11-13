@@ -1,0 +1,9 @@
+INFO:     Will watch for changes in these directories: ['/Users/raghavpratap/Desktop/SubtitleAI/subtitleai/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [24918] using WatchFiles
+INFO:app.database:Database connection established
+INFO:app.main:Database tables created successfully
+INFO:     Started server process [24922]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50037 - "GET /api/health HTTP/1.1" 200 OK

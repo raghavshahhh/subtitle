@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Upload</title>
+</head>
+<body>
+    <h1>Test SubtitleAI Upload</h1>
+    <button onclick="testConnection()">Test Backend Connection</button>
+    <div id="result"></div>
+
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                // Test basic connection
+                const response = await fetch('http://localhost:8000/');
+                const data = await response.json();
+                
+                if (data.message.includes('SubtitleAI API is running')) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ Backend connection successful!</p>';
+                } else {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ Backend response unexpected</p>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: red;">❌ Cannot connect to backend: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

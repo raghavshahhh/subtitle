@@ -4,6 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from app.database import engine, Base
 from app.api import auth_simple, upload_fixed, projects_simple
+from app.middleware.rate_limiter import limiter
+from slowapi.errors import RateLimitExceeded
 import os
 import logging
 
@@ -14,8 +16,22 @@ logger = logging.getLogger(__name__)
 app = FastAPI(
     title="SubtitleAI API",
     description="AI-powered subtitle generation API",
-    version="2.0.0"
+    version="2.0.0",
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    openapi_url="/api/openapi.json"
 )
+
+# Add rate limiter
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, lambda request, exc: JSONResponse(
+    status_code=429,
+    content={"detail": "Rate limit exceeded. Please try again later."}
+))
+
+# Add monitoring middleware
+from app.middleware.monitoring import metrics_middleware, metrics_endpoint
+app.middleware("http")(metrics_middleware)
 
 # CORS - Production ready
 allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
@@ -81,3 +97,8 @@ async def health():
             status_code=503,
             content={"status": "unhealthy", "error": str(e)}
         )
+
+@app.get("/metrics")
+async def metrics(request: Request):
+    """Prometheus metrics endpoint"""
+    return await metrics_endpoint(request)

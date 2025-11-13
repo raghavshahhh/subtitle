@@ -277,7 +277,3 @@ MIT License - see [LICENSE](LICENSE) file
 ## ⭐ Star History
 
 If you find this project useful, please consider giving it a star!
-
----
-
-**Made with ❤️ using Amazon Q Developer**

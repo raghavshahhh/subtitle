@@ -113,7 +113,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         video_url: publicUrl,
         thumbnail_url: thumbnailUrl,
         file_size: videoFile.size,
-        template_id: parseInt(templateId) || 1,
+        template_id: parseInt(templateId || '1') || 1,
         status: 'uploaded',
         created_at: new Date().toISOString()
       }

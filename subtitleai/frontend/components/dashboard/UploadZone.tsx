@@ -65,9 +65,12 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
     disabled: uploading
   })
 
+  const { onClick, ...rootProps } = getRootProps()
+
   return (
     <motion.div
-      {...getRootProps()}
+      {...rootProps}
+      onClick={onClick as any}
       className={`
         relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all
         ${isDragActive 

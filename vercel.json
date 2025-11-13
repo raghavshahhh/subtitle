@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd subtitleai/frontend && npm install && npm run build",
-  "outputDirectory": "subtitleai/frontend/.next"
-}

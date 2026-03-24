@@ -263,7 +263,7 @@ MIT License - see [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Raghav**
-- Email: raghav@ragspro.com
+- Email: ragsproai@gmail.com
 - Website: [ragspro.com](https://ragspro.com)
 
 ## 🙏 Acknowledgments
